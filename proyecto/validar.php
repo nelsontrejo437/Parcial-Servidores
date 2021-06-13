@@ -4,7 +4,7 @@ $contra=$_POST['contra'];
 
 //conexion 
 
-$conex=mysqli_connect('localhost', 'root', 'usbw', 'tuto_poo');
+$conex=mysqli_connect('servidores', 'hospital', 'root', 'hospital');
 $consulta="SELECT * FROM usuarios WHERE usuario='$usuario' AND contra='$contra'";
 $q=mysqli_query($conex, $consulta);
 

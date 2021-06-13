@@ -11,27 +11,27 @@
       $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
       if(isset($_POST["login"]))  
       {  
-           if(empty($_POST["usuario"]) || empty($_POST["pass"]))  
+           if(empty($_POST["nombre"]) || empty($_POST["contra"]))  
            {  
                 $message = '<label>Todos los campos son obligatorios</label>';  
            }  
            else  
            {  
-                $query = "SELECT * FROM usuarios WHERE usuario = 'admin' AND pass = '123'";  
+                $query = "SELECT * FROM usuarios WHERE nombre = 'denilson' AND contra '234'";  
                 $statement = $connect->prepare($query);  
                 $statement->execute(  
                      array(  
-                          'usuario'     =>     $_POST["usuario"],  
-                          'pass'     =>     $_POST["pass"]  
+                          'usuario'     =>     $_POST["nombre"],  
+                          'pass'     =>     $_POST["contra"]  
                      )  
                 );  
                   $count = $statement->rowCount();
                   $count2 = $statement->rowCount();
                 switch ("$count" && "$count2") {
-                  case "usuario" && "pass": 
+                  case "nombre" && "contra": 
                     if($count > 0)  
                 {  
-                     $_SESSION["usuario"] = $_POST["usuario"];  
+                     $_SESSION["nombre"] = $_POST["nombre"];  
                      header("location:Doctor/principal.php");  
                 }  
                 else  
@@ -40,10 +40,10 @@
                 }  
                     break;
                   
-                  case "usuario" && "pass": 
+                  case "nombre" && "contra": 
                     if($count2 > 0)  
                 {  
-                     $_SESSION["usuario"] = $_POST["usuario"];  
+                     $_SESSION["nombre"] = $_POST["nombre"];  
                      header("location:Secretaria/principal.php");  
                 }  
                 else  
@@ -83,10 +83,10 @@
                 <h3 align="">Inicio de Sesion</h3><br />  
                 <form method="post">  
                      <label>Usuario</label>  
-                     <input type="text" name="usuario" class="form-control" required="" placeholder="ingrese su usuario" />  
+                     <input type="text" name="nombre" class="form-control" required="" placeholder="ingrese su usuario" />  
                      <br />  
                      <label>Contraseña</label>  
-                     <input type="pass" name="pass" class="form-control" required="" placeholder="ingrese su contraseña" />  
+                     <input type="pass" name="contra" class="form-control" required="" placeholder="ingrese su contraseña" />  
                      <br />  
                      <input type="submit" name="login" class="btn btn-info" value="Login" />  
                 </form>  
