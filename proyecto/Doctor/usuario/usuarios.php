@@ -77,7 +77,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../charts.php">
+        <a class="nav-link" href="../citas/charts.php">
           <i class="fas fa-file-medical"></i>
           <span>Citas</span></a>
       </li>
