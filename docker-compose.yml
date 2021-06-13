@@ -1,0 +1,27 @@
+version: "3.1"
+
+services:
+  web:
+    build: "./"
+    working_dir: /Servidores
+    ports:
+      - "8080:80"
+    volumes:
+      - "./proyecto:/app:rw,cached"
+    links:
+      - mysql:mysql
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.25
+    volumes:
+      - ./sql-data/db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    hostname: servidores
+    environment:
+      MYSQL_DATABASE: 'hospital'
+      MYSQL_USER: 'hospital'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
